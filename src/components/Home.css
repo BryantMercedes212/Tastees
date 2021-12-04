@@ -1,0 +1,13 @@
+.Landing {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+}
+
+.Landing h1 {
+  margin: 100px;
+  font-size: 50px;
+  color: bisque;
+}

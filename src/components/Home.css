@@ -11,3 +11,9 @@
   font-size: 50px;
   color: bisque;
 }
+
+@media screen and (max-width: 768px) {
+  .Landing {
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,9 @@
 import { Component } from "react";
 import "./Nav.css";
+import { Routes, Route, Link } from "react-router-dom";
+import Products from "./ProductDisplay";
+import productData from "../data/data";
+import ProductDisplay from "./ProductDisplay";
 
 class Nav extends Component {
   constructor() {
@@ -15,6 +19,16 @@ class Nav extends Component {
   };
 
   render() {
+    const products = productData.map((product) => {
+      return (
+        <ProductDisplay
+          key={product.id}
+          product={product}
+          handleProductClick={this.handleProductClick}
+        />
+      );
+    });
+
     return (
       <header>
         <nav>
@@ -25,16 +39,19 @@ class Nav extends Component {
           </div>
           <ul className={this.state.isToggle ? "nav-links-open" : "nav-links"}>
             <li>
-              <a href="#">About</a>
+              <Link to="/">About</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/products">Products</Link>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <Link to="#">Projects</Link>
             </li>
           </ul>
         </nav>
+        <Routes>
+          <Route path="/products" element={products} />
+        </Routes>
       </header>
     );
   }
